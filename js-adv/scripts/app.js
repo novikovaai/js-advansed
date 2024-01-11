@@ -72,3 +72,18 @@ function currencyConverter(amount, initialCurrency, targetCurrency) {
 }
 
 console.log(currencyConverter(1000, 'RUB', 'EUR'));
+
+// проверить, есть ли сегодня день рождения у пользователя
+
+const user = {
+	name: 'Vasya',
+	birthday: '01/11/2024'
+}
+
+function checkBirthday(user) {
+	const now = new Date(Date.now());
+	const bd = new Date(user.birthday);
+	return now.getMonth() == bd.getMonth() && now.getDate() == bd.getDate()
+};
+
+console.log(checkBirthday(user))
