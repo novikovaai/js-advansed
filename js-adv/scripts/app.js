@@ -87,3 +87,25 @@ function checkBirthday(user) {
 };
 
 console.log(checkBirthday(user))
+
+// Таймер пиццы Сделать таймер пиццы (функция, принимающая время),
+// который будет выводить в консоль секунды, оставшиеся до готовности пиццы
+// и сообщение по готовности. 00:04 00:03 00:02 00:01 00:00 🍕!!!
+
+function pizzaReadyIn(time) {
+	const now = Date.now();
+	let newTime = now + time;
+	const options = {
+		second: "numeric",
+		minute: "numeric",
+	};
+	const interval = setInterval(() => {
+		console.log(new Intl.DateTimeFormat('ru-RU', options).format(newTime + 100 - Date.now()));
+	}, 1000)
+	setTimeout(() => {
+		clearInterval(interval);
+		console.log('🍕!!!')
+	}, time)
+}
+
+pizzaReadyIn(5000)
