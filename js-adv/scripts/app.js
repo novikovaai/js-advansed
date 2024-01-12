@@ -109,3 +109,46 @@ function pizzaReadyIn(time) {
 }
 
 pizzaReadyIn(5000)
+
+/*Реализовать на функция и прототипах корзину товаров с методами
+-  Добавить товар
+-  Увеличить число товаров
+-  Уменьшить число товаров (удалить, если их 0)*/
+
+const Basket = function () {
+	this.products = [];
+}
+Basket.prototype.add = function (product) {
+	for (const good of this.products) {
+		if (good.id === product.id) {
+			this.plus(product)
+			return
+		}
+	}
+	this.products.push(product)
+}
+Basket.prototype.plus = function (product) {
+	for (const good of this.products) {
+		if (good.id === product.id) {
+			good.count += 1;
+			break
+		}
+	}
+}
+Basket.prototype.minus = function (product) {
+	for (const good of this.products) {
+		if (good.id === product.id) {
+			good.count -= 1;
+			if (good.count === 0) {
+				this.products.splice(this.products.indexOf(good), 1)
+			};
+			break
+		}
+	}
+}
+
+const product = { id: 1, name: 'Bread', count: 1 }
+const basket = new Basket()
+basket.add(product)
+basket.add(product)
+console.log(basket)
