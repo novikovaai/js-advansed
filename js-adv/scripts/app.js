@@ -152,3 +152,47 @@ const basket = new Basket()
 basket.add(product)
 basket.add(product)
 console.log(basket)
+
+/* Реализовать класс пользователя, со свойствами
+- логин
+- пароль
+Причем пароль при установке должен переворачиваться и в таком виде храниться.
+Пароль и логин после создания изменить нельзя. Так же у класса добавить методы
+- Смены пароля (передаем старый и новый пароль)
+- Сверки пароля */
+
+class User {
+	#login;
+	#password;
+	constructor(login, password) {
+		this.#login = login;
+		this.#password = password.split('').reverse().join('')
+	}
+	#ChangePasswordPr(newPassword) {
+		this.#password = newPassword.split('').reverse().join('');
+		console.log(`Пароль изменен на ${newPassword}`)
+	}
+
+	changePassword(password, newPassword) {
+		if (this.checkPassword(password)) {
+			this.#ChangePasswordPr(newPassword)
+		}
+	}
+
+	checkPassword(password) {
+		return password === this.#password.split('').reverse().join('');
+	}
+
+	get login() {
+		return this.#login
+	}
+}
+
+let user1 = new User('1@1', 'erhw43d')
+
+console.log(user1)
+
+user1.changePassword('erhw43d', 'dffr$f')
+
+console.log(user1.checkPassword('erhw43d'))
+
