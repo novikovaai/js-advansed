@@ -196,3 +196,60 @@ user1.changePassword('erhw43d', 'dffr$f')
 
 console.log(user1.checkPassword('erhw43d'))
 
+/*Сделать класс врага со здоровьем и методом получения урона
+* Сделать класс меча, который имеет силу и метод нанесения уроноа
+* Сделать класс орка, который в 50% случаев не получает урон*/
+
+class Enemy {
+	health;
+	constructor(health) {
+		this.health = health;
+	}
+
+	get health() {
+		return this.health
+	}
+
+	receiveDamage(damage) {
+		this.health -= damage;
+		if (this.health <= 0) {
+			console.log('Враг мертв')
+		}
+	}
+}
+
+class Sword {
+	#strength;
+	constructor(strength) {
+		this.#strength = strength;
+	}
+	get strength() {
+		return this.#strength
+	}
+
+	makeDamage(enemy) {
+		enemy.receiveDamage(this.strength)
+	}
+}
+
+class Orc extends Enemy {
+	constructor(health) {
+		super(health);
+	}
+	receiveDamage(damage) {
+		let isDamage = Math.round(Math.random())
+		if (isDamage) {
+			this.health -= damage;
+		}
+		if (this.health <= 0) {
+			console.log('Враг мертв')
+		}
+	}
+
+}
+
+const thrall = new Orc(100)
+const goldenGlory = new Sword(25)
+
+goldenGlory.makeDamage(thrall)
+console.log(thrall.health)
