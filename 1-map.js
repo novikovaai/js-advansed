@@ -13,3 +13,7 @@ for (const id of unId) {
 };
 
 console.log(res)
+
+const unicId = [...new Set(arr.map(el => arr.find(element => element.id === el.id)))];
+
+console.log(unicId)
