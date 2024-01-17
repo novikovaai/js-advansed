@@ -1,22 +1,20 @@
+'use strict'
+
 class Car {
 	#brand;
 	#model;
-	#_mileage;
+	#mileage;
 	constructor(brand, model, mileage) {
 		this.#brand = brand;
 		this.#model = model;
 		this.#mileage = mileage;
 	}
 
-	get #mileage() {
-		return this.#_mileage
+    get mileage() {
+		return this.#mileage
 	}
 
-	set #mileage(newMileage) {
-		this.#_mileage = newMileage;
-	}
-
-	changeMileage(newMileage) {
+    set mileage(newMileage) {
 		this.#mileage = newMileage;
 	}
 
@@ -27,5 +25,5 @@ class Car {
 
 const car1 = new Car('Geely', 'Atlas', 23000)
 car1.info()
-car1.changeMileage(40000)
+car1.mileage = 40000
 car1.info()
