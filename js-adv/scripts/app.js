@@ -1,31 +1,27 @@
 'use strict';
 
-function getData(url, errMsg) {
-	return fetch(url)
-		.then(
-			response => {
-				if (!response.ok) {
-					throw new Error(`${errMsg} ${response.status}`)
-				}
-				return response.json()
+function myFetch(url) {
+	return new Promise((resolve, reject) => {
+		const request = new XMLHttpRequest();
+		request.open('GET', url);
+		request.send();
+
+		request.addEventListener("load", function () {
+			if (this.status > 400) {
+				reject(new Error(this.status))
 			}
-		)
+			resolve(this.responseText)})
+		
+		request.addEventListener("error", function () {
+			reject(new Error(this.status))
+		})	
+	}
+	)	
 }
 
-getData('https://dummyjson.com/products/', 'Страница не найдена')	
-	.then(({ products }) => {
-		console.log(products);
-		return getData('https://dummyjson.com/products/' + products[0].id, 'Товар не найден')
+myFetch('https://dummyjson.com/products/')
+	.then(data => JSON.parse(data))
+	.then((data) => {
+		console.log(data);
 	})
-	.then(response => response.json())
-	.then(data => {
-		console.log(data)
-	})
-	.catch(error => {
-		const el = document.querySelector('.secondTest');
-		el.innerHTML = error.message
-	})
-
-
-
-
+	.catch(err => console.error(err))
