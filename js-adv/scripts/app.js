@@ -1,27 +1,26 @@
 'use strict';
+/*Сделать генератор трех идей от скуки
+https://www.boredapi.com/api/activity
+с отображением на странице*/
 
-function myFetch(url) {
-	return new Promise((resolve, reject) => {
-		const request = new XMLHttpRequest();
-		request.open('GET', url);
-		request.send();
-
-		request.addEventListener("load", function () {
-			if (this.status > 400) {
-				reject(new Error(this.status))
-			}
-			resolve(this.responseText)})
-		
-		request.addEventListener("error", function () {
-			reject(new Error(this.status))
-		})	
-	}
-	)	
+async function getIdea() {
+	const res = await fetch('https://www.boredapi.com/api/activity')
+	const data = await res.json()
+	return await data.activity
 }
 
-myFetch('https://dummyjson.com/products/')
-	.then(data => JSON.parse(data))
-	.then((data) => {
-		console.log(data);
-	})
-	.catch(err => console.error(err))
+
+const ideas = document.querySelector('.randomIdeas');
+
+async function getThreeIdeas() {	
+	try {
+		const res = await Promise.all([getIdea(), getIdea(), getIdea()])
+
+		console.log(res)
+	}
+	catch (e) {
+		console.error(e)
+	}
+}
+
+getThreeIdeas()

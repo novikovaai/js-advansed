@@ -271,3 +271,33 @@ request.addEventListener("load", function () {
 
 })
 
+/*Получить геолокацию пользователя через
+Geolocation.getCurrentPosition()
+* https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=00&longitude=00*/
+
+function myCoords() {
+	return new Promise((resolve, reject) => {
+		navigator.geolocation.getCurrentPosition((position) => {
+			resolve({
+				latitude: position.coords.latitude,
+				longitude: position.coords.longitude
+			})
+		}, (error) => { reject(error.message) });
+	})
+
+}
+
+
+async function myCity() {
+	try {
+		const crds = await myCoords();
+		const data = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${crds.latitude}&longitude=${crds.longitude}`);
+		const dataJ = await data.json()
+		console.log(dataJ.city)
+	}
+	catch (e) {
+		console.error(e)
+	}
+}
+
+myCity()
