@@ -9,7 +9,7 @@ body {
 .boredom {
 	background-color: aliceblue;
 	color: black;
-	max-width: 1200px;	
+	width: fit-content;
 	margin: 20px auto;
 	padding: 20px;
 }
@@ -30,12 +30,15 @@ button:hover {
 
 .randomIdeas {
 	display: flex;
-	justify-content: space-between;
+	gap: 20px;
 	align-items: center;
+	margin-bottom: 20px;
+	justify-content: center;
 }
 
 .idea {
-	background-color: rgb(171, 183, 194);
-	color: black;
+	background-color: rgb(166, 209, 250);
+	color: rgb(0, 12, 63);
 	padding: 10px;
+	border-radius: 10px;
 }

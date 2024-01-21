@@ -12,15 +12,20 @@ async function getIdea() {
 
 const ideas = document.querySelector('.randomIdeas');
 
-async function getThreeIdeas() {	
+async function getThreeIdeas() {
+	ideas.innerHTML = ''	
 	try {
 		const res = await Promise.all([getIdea(), getIdea(), getIdea()])
-
-		console.log(res)
+		for (const i of res) {
+			const element = document.createElement('div');
+			element.classList.add('idea');
+			ideas.appendChild(element)
+			element.innerText = i
+		}
 	}
 	catch (e) {
 		console.error(e)
 	}
 }
 
-getThreeIdeas()
+
