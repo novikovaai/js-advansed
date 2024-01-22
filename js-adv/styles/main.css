@@ -24,9 +24,9 @@ button {
 	cursor: pointer;
 }
 
-button:hover {
+/* button:hover {
 	background-color: rgb(87, 133, 219);
-}
+} */
 
 .randomIdeas {
 	display: flex;
@@ -41,4 +41,30 @@ button:hover {
 	color: rgb(0, 12, 63);
 	padding: 10px;
 	border-radius: 10px;
+}
+
+.outer {
+	margin: 20px auto;
+	padding: 20px;
+	background: none;
+	border: 2px solid white;
+	width: 700px;
+}
+
+.inner {
+	margin: 20px auto;
+	padding: 20px;
+	background: none;
+	border: 2px solid white;
+	color: white;
+}
+
+.button {
+	margin: 0 auto;
+	background: none;
+	padding: 15px;
+	border-radius: 10px;
+	color: white;
+	border: 1px solid white;;
+	cursor: pointer;
 }

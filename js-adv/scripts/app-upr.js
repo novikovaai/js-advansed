@@ -301,3 +301,65 @@ async function myCity() {
 }
 
 myCity()
+/*Сделать генератор трех идей от скуки
+https://www.boredapi.com/api/activity
+с отображением на странице*/
+
+async function getIdea() {
+	const res = await fetch('https://www.boredapi.com/api/activity')
+	const data = await res.json()
+	return await data.activity
+}
+
+
+const ideas = document.querySelector('.randomIdeas');
+
+async function getThreeIdeas() {
+	ideas.innerHTML = ''
+	try {
+		const res = await Promise.all([getIdea(), getIdea(), getIdea()])
+		for (const i of res) {
+			const element = document.createElement('div');
+			element.classList.add('idea');
+			ideas.appendChild(element)
+			element.innerText = i
+		}
+	}
+	catch (e) {
+		console.error(e)
+	}
+}
+
+// Динамически создать N элементов с текстом 
+//и поле для поиска. При вводе в поле, выделять элементы, 
+//которые содержат введенный текст
+
+function randomInteger(min, max) {
+	let rand = min + Math.random() * (max - min);
+	return Math.floor(rand);
+}
+
+const button = document.querySelector('.button');
+const inner = document.querySelector('.inner');
+const outer = document.querySelector('.outer');
+const search = document.querySelector('.search');
+
+const firstWord = ['Международный', 'Всемирный', 'Всероссийский', 'Национальный'];
+const thirdWord = ['любви', 'дружбы', 'объятий', 'пива', 'пряников', 'мульфильмов', 'яблок', 'мам', 'пап', 'детей'];
+
+button.addEventListener('click', function (event) {
+	const el = document.createElement('div');
+	el.classList.add('inner')
+	outer.append(el)
+	el.innerText = firstWord[randomInteger(0, firstWord.length)] + ' день ' + thirdWord[randomInteger(0, thirdWord.length)]
+});
+
+function toSearch() {
+	for (const child of outer.children) {
+		if (child.innerText.includes(search.value.toLowerCase())) {
+			child.style.backgroundColor = 'green'
+		}
+	}
+}
+
+search.addEventListener('change', toSearch)
