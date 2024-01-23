@@ -1,0 +1,70 @@
+* {
+	box-sizing: border-box;
+}
+
+body {	
+	margin: 0;
+}
+
+.boredom {
+	background-color: aliceblue;
+	color: black;
+	width: fit-content;
+	margin: 20px auto;
+	padding: 20px;
+}
+
+button {
+	margin: 0 auto;
+	background-color: cornflowerblue;
+	padding: 15px;
+	border-radius: 10px;
+	color: black;
+	border: none;
+	cursor: pointer;
+}
+
+/* button:hover {
+	background-color: rgb(87, 133, 219);
+} */
+
+.randomIdeas {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+	margin-bottom: 20px;
+	justify-content: center;
+}
+
+.idea {
+	background-color: rgb(166, 209, 250);
+	color: rgb(0, 12, 63);
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.outer {
+	margin: 20px auto;
+	padding: 20px;
+	background: none;
+	border: 2px solid white;
+	width: 700px;
+}
+
+.inner {
+	margin: 20px auto;
+	padding: 20px;
+	background: none;
+	border: 2px solid white;
+	color: white;
+}
+
+.button {
+	margin: 0 auto;
+	background: none;
+	padding: 15px;
+	border-radius: 10px;
+	color: white;
+	border: 1px solid white;;
+	cursor: pointer;
+}

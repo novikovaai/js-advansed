@@ -1,0 +1,38 @@
+* {	
+	box-sizing: border-box;
+
+}
+
+.content {
+	width: 600px;
+	margin: 100px auto;
+	background-color: #deffe8;
+	border-radius: 10px;
+	border: 2px solid #36463b;
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+	align-items: center;
+	padding: 20px;
+}
+
+.h1 {
+	font-size: 45px;
+	margin: 0;
+	text-align: center;
+}
+
+.counter {
+	font-size: 25px;
+	text-align: center;
+}
+
+.next {
+	font-size: 25px;
+	text-align: center;
+}
+
+.date {
+	font-size: 25px;
+	text-align: center;
+}
