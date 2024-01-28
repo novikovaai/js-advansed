@@ -1,0 +1,32 @@
+{
+  "name": "book-app",
+  "version": "1.0.0",
+  "description": "My Books final project JS advansed",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "live-server",
+    "build": "rollup -c --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/novikovaai/js-advansed.git"
+  },
+  "keywords": [
+    "books"
+  ],
+  "author": "Anastasiya Novikova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/novikovaai/js-advansed/issues"
+  },
+  "homepage": "https://github.com/novikovaai/js-advansed#readme",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "eslint": "^8.56.0",
+    "on-change": "^5.0.1",
+    "rollup": "^4.9.6",
+    "rollup-plugin-import-css": "^3.4.0"
+  }
+}
