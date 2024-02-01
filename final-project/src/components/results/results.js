@@ -20,15 +20,13 @@ export class SearchResults extends DivComponent {
 			return this.el
 		}
 		this.el.innerHTML = '';
-		this.el.classList.add('result');
-		this.el.innerHTML = `
-				<h1>
-					Найдено книг - ${this.parentState.numFound}
-				</h1>
-		`
+		// this.el.classList.add('result');
 		
+		const cardGrid = document.createElement('div');
+		cardGrid.classList.add('result_grid');
+		this.el.append(cardGrid);	
 		for (const card of this.parentState.list) {
-			this.el.append(new Card(this.appState, card).render())
+			cardGrid.append(new Card(this.appState, card).render())
 		}
 		return this.el
 	}

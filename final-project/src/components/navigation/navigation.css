@@ -1,0 +1,38 @@
+.nav {
+	display: flex;
+	justify-content: space-between;
+
+}
+
+.nav__back {
+	display: flex;
+	gap: 10px;	
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+	color: var(--black);	
+	opacity: 0.5;
+}
+
+.nav__forward {
+	display: flex;
+	gap: 10px;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+	color: var(--black);
+	opacity: 0.5;
+}
+
+.nav__forward img {
+	transform: rotate(180deg);
+}
+
+.nav__active {
+	opacity: 1;
+	cursor: pointer;
+}
+
+.nav__active:hover {
+	text-decoration: underline;
+}
